@@ -6,6 +6,8 @@ namespace VSComMariaDB.Model
     {
         public DbSet<Pessoa> Pessoa { get; set; }
 
+        public DbSet<Produto> Produto { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder OptionsBuilder)
         {
             IConfigurationRoot Configuration = new ConfigurationBuilder()
@@ -16,5 +18,6 @@ namespace VSComMariaDB.Model
             var ConnectionString = Configuration.GetConnectionString("MariaDB");
             OptionsBuilder.UseMySql(ConnectionString, ServerVersion.AutoDetect(ConnectionString));
         }
+
     }
 }
